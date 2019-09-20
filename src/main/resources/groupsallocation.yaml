@@ -1,0 +1,48 @@
+datafile:
+  # Si le chemin spécifié est
+  filepath: 'utilisateurs.csv'
+  # Nom des champs, séparés par des points virgules (comme dans le CSV)
+  rawdatapattern: 'AMUID;PRENOM;NOM;GROUPE'
+
+# L'identifiant du serveur sur lequel les groupes sont attribués
+guildid: '000000000000000000'
+
+# Ce champ sera comparé avec ce que l'utilisateur a rentré
+matchfield: 'AMUID'
+# Ce champ sera comparé avec la liste des groupes plus bas pour l'attribution
+groupfield: 'GROUPE'
+
+# name: Valeur comparée au champ indiqué dans 'groupfield'
+# id: Identifiant du groupe à l'échelle du serveur
+# description: Description du groupe, disponible dans le champ 'GROUP_DESCRIPTION' pour le message
+grouptypes:
+  - name: 'A1G1'
+    id: '000000000000000000'
+    description: 'Année 1, groupe 1'
+  - name: 'A1G2'
+    id: '000000000000000000'
+    description: 'Année 1, groupe 2'
+  - name: 'A1G3'
+    id: '000000000000000000'
+    description: 'Année 1, groupe 3'
+  - name: 'A1G4'
+    id: '000000000000000000'
+    description: 'Année 1, groupe 4'
+
+  - name: 'A2G1'
+    id: '000000000000000000'
+    description: 'Année 2, groupe 1'
+  - name: 'A2G2'
+    id: '000000000000000000'
+    description: 'Année 2, groupe 2'
+
+  - name: 'A2ALT'
+    id: '000000000000000000'
+    description: 'Année 2, Alternance'
+  - name: 'LP'
+    id: '000000000000000000'
+    description: 'License pro'
+
+  - name: 'PROF'
+    id: '000000000000000000'
+    description: 'Professeur'

@@ -1,0 +1,8 @@
+discordtoken: 'ABC'
+
+commands:
+  guildid: '000000000000000000'
+  channelid: '000000000000000000'
+
+# Attribution des groupes: "enabled" ou "disabled"
+groupsattribution: 'enabled'
