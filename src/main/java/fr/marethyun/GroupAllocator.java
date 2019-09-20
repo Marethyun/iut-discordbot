@@ -71,6 +71,8 @@ public final class GroupAllocator implements MessageProcessor {
                 if (types.isEmpty()) {
                     // Type correspondant non trouvé
                 }
+
+                // TODO attribuer le groupe, etc
             }
         }
     }
