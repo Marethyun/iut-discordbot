@@ -1,8 +1,6 @@
-datafile:
-  # Si le chemin spécifié est
-  filepath: 'utilisateurs.csv'
-  # Nom des champs, séparés par des points virgules (comme dans le CSV)
-  rawdatapattern: 'AMUID;PRENOM;NOM;GROUPE'
+
+# Nom des champs (en-tête CSV), séparés par des point-virgules
+rawdatapattern: 'AMUID;PRENOM;NOM;GROUPE'
 
 # L'identifiant du serveur sur lequel les groupes sont attribués
 guildid: '000000000000000000'
@@ -14,7 +12,7 @@ groupfield: 'GROUPE'
 
 # name: Valeur comparée au champ indiqué dans 'groupfield'
 # id: Identifiant du groupe à l'échelle du serveur
-# description: Description du groupe, disponible dans le champ 'GROUP_DESCRIPTION' pour le message
+# description: Description du groupe, disponible par la suite dans le champ 'GROUP_DESCRIPTION'
 grouptypes:
   - name: 'A1G1'
     id: '000000000000000000'

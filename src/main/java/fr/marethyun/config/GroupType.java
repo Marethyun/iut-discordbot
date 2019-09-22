@@ -37,4 +37,9 @@ public final class GroupType {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s: %s, '%s'", this.name, this.id, this.description);
+    }
 }

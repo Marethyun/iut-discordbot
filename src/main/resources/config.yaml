@@ -1,8 +1,13 @@
-discordtoken: 'ABC'
+# Token du bot, nécessaire pour la connexion à l'API Discord
+discordtoken: 'NTczMjM0MTQ5NDc3ODQyOTY3.XYX4_Q.fLTuR-AvQnUkPmamx-F37kbtl0o'
 
 commands:
+  # Préfixe des commandes
+  prefix: '$'
+  # Identifiant du serveur
   guildid: '000000000000000000'
+  # Identifiant du canal textuel (qui doit être dans le serveur spécifié au dessus)
   channelid: '000000000000000000'
 
-# Attribution des groupes: "enabled" ou "disabled"
+# Activation du système d'attribution des groupes: "enabled" ou "disabled"
 groupsattribution: 'enabled'

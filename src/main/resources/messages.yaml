@@ -1,19 +1,18 @@
-# Un message discord sans auteur (je savais pas que ça pouvait arriver d'ailleurs)
-authormissing: 'Un message sans auteur a été rencontré..'
-
 # Une commande n'existe pas
 commandmissing: 'Commande non reconnue..'
 
-## Vous pouvez réutiliser dans les deux messages suivants les champs définis, en les entourant d'accolades
-# Allocation de groupe réussie
-allocationmessage: 'Bonjour, {PRENOM} ! Tu as été attribué au groupe "{GROUP_DESCRIPTION}."'
-
-# Entrée de l'utilisateur non comprise
-misunderstandmessage: 'Les informations que vous m''avez donné ne me permettent pas de vous attribuer votre groupe.'
-##
-
 # Pas de correspondance dans la liste de données
-nodatamatch: 'Les informations que vous m''avez transmises ne correspondent à rien'
+nodatamatch: 'Que voulez-vous dire ?'
 
 # Une erreur est survenue
-error: 'Une erreur est survenue lors de l''attribution de votre groupe'
+allocationerror: 'Une erreur est survenue lors de l''attribution de votre groupe'
+
+# Entrée de l'utilisateur non comprise
+misunderstandmessage: 'Je ne comprends pas ce que vous dites..'
+
+## Vous pouvez réutiliser dans les deux messages suivants les champs définis, en les entourant d'accolades
+# Champ supplémentaire: GROUP_DESCRIPTION, la description du groupe fournie dans la configuration
+# Allocation de groupe réussie
+allocationmessage: 'Bonjour, {PRENOM} {NOM} ! Vous avez été attribué au groupe "{GROUP_DESCRIPTION}."'
+# Bon groupe déjà attribué
+alreadyallocated: 'Bonjour, {PRENOM} {NOM} !  Vous faites déjà partie de votre groupe "{GROUP_DESCRIPTION}".'

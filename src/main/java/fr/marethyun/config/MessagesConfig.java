@@ -1,31 +1,23 @@
 package fr.marethyun.config;
 
 public class MessagesConfig {
-    public String authormissing;
     public String commandmissing;
-    public String allocationmessage;
-    public String misunderstandmessage;
-    public String error;
     public String nodatamatch;
+    public String allocationerror;
+    public String misunderstandmessage;
+    public String allocationmessage;
+    public String alreadyallocated;
 
     public MessagesConfig() {
     }
 
-    public MessagesConfig(String authormissing, String commandmissing, String allocationmessage, String misunderstandmessage, String error, String nodatamatch) {
-        this.authormissing = authormissing;
+    public MessagesConfig(String commandmissing, String nodatamatch, String allocationerror, String misunderstandmessage, String allocationmessage, String alreadyallocated) {
         this.commandmissing = commandmissing;
-        this.allocationmessage = allocationmessage;
-        this.misunderstandmessage = misunderstandmessage;
-        this.error = error;
         this.nodatamatch = nodatamatch;
-    }
-
-    public String getAuthormissing() {
-        return authormissing;
-    }
-
-    public void setAuthormissing(String authormissing) {
-        this.authormissing = authormissing;
+        this.allocationerror = allocationerror;
+        this.misunderstandmessage = misunderstandmessage;
+        this.allocationmessage = allocationmessage;
+        this.alreadyallocated = alreadyallocated;
     }
 
     public String getCommandmissing() {
@@ -36,12 +28,20 @@ public class MessagesConfig {
         this.commandmissing = commandmissing;
     }
 
-    public String getAllocationmessage() {
-        return allocationmessage;
+    public String getNodatamatch() {
+        return nodatamatch;
     }
 
-    public void setAllocationmessage(String allocationmessage) {
-        this.allocationmessage = allocationmessage;
+    public void setNodatamatch(String nodatamatch) {
+        this.nodatamatch = nodatamatch;
+    }
+
+    public String getAllocationerror() {
+        return allocationerror;
+    }
+
+    public void setAllocationerror(String allocationerror) {
+        this.allocationerror = allocationerror;
     }
 
     public String getMisunderstandmessage() {
@@ -52,19 +52,19 @@ public class MessagesConfig {
         this.misunderstandmessage = misunderstandmessage;
     }
 
-    public String getError() {
-        return error;
+    public String getAllocationmessage() {
+        return allocationmessage;
     }
 
-    public void setError(String error) {
-        this.error = error;
+    public void setAllocationmessage(String allocationmessage) {
+        this.allocationmessage = allocationmessage;
     }
 
-    public String getNodatamatch() {
-        return nodatamatch;
+    public String getAlreadyallocated() {
+        return alreadyallocated;
     }
 
-    public void setNodatamatch(String nodatamatch) {
-        this.nodatamatch = nodatamatch;
+    public void setAlreadyallocated(String alreadyallocated) {
+        this.alreadyallocated = alreadyallocated;
     }
 }

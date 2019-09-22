@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public final class GroupsAllocationConfig {
 
-    public DataFileConfig datafile;
+    public String rawdatapattern;
     public String guildid;
     public String matchfield;
     public String groupfield;
@@ -14,20 +14,20 @@ public final class GroupsAllocationConfig {
     public GroupsAllocationConfig() {
     }
 
-    public GroupsAllocationConfig(DataFileConfig datafile, String guildid, String matchfield, String groupfield, String allocationmessage, String misunderstandmessage, ArrayList<GroupType> grouptypes) {
-        this.datafile = datafile;
+    public GroupsAllocationConfig(String rawdatapattern, String guildid, String matchfield, String groupfield, ArrayList<GroupType> grouptypes) {
+        this.rawdatapattern = rawdatapattern;
         this.guildid = guildid;
         this.matchfield = matchfield;
         this.groupfield = groupfield;
         this.grouptypes = grouptypes;
     }
 
-    public DataFileConfig getDatafile() {
-        return datafile;
+    public String getRawdatapattern() {
+        return rawdatapattern;
     }
 
-    public void setDatafile(DataFileConfig datafile) {
-        this.datafile = datafile;
+    public void setRawdatapattern(String rawdatapattern) {
+        this.rawdatapattern = rawdatapattern;
     }
 
     public String getGuildid() {
@@ -53,7 +53,6 @@ public final class GroupsAllocationConfig {
     public void setGroupfield(String groupfield) {
         this.groupfield = groupfield;
     }
-
 
     public ArrayList<GroupType> getGrouptypes() {
         return grouptypes;
