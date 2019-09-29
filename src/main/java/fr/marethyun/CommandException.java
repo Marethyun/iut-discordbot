@@ -1,5 +1,10 @@
 package fr.marethyun;
 
+/**
+ * Exception inherited from BotException
+ *
+ * @see BotException
+ */
 public class CommandException extends BotException {
     public CommandException() {
     }

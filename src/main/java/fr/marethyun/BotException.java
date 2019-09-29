@@ -1,5 +1,8 @@
 package fr.marethyun;
 
+/**
+ * An exception matching the bot errors
+ */
 public class BotException extends RuntimeException {
     public BotException() {}
 
