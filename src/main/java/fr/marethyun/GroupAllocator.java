@@ -18,19 +18,47 @@ import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+/**
+ * Singleton class, responsible of the group allocation system.
+ */
 public final class GroupAllocator implements MessageProcessor {
 
+    /**
+     * The class' logger
+     */
     private static final Logger LOGGER = Logger.getLogger(GroupAllocator.class.getName());
+
+    /**
+     * The singleton instance, defaultly null
+     */
     private static GroupAllocator instance = null;
 
+    /**
+     * The csv format containing the right header specified in the configuration file
+     */
     private final CSVFormat csvFormat;
+
+    /**
+     * List of the CSV header fields, as strings
+     */
     private final List<String> fields;
 
+    /**
+     * The singleton instance getter
+     * @return a new instance if {@link GroupAllocator#instance} is null, {@link GroupAllocator#instance} otherwise
+     */
     public static GroupAllocator getInstance() {
         return instance == null ? new GroupAllocator() : instance;
     }
 
-    private GroupAllocator() {
+    /**
+     * The class' constructor.
+     *
+     * Builds the header and the fields using the configuration.
+     *
+     * @throws BotException if there were a problem loading the files
+     */
+    private GroupAllocator() throws BotException {
         String[] splittedFields = App.getInstance().getGroupsAllocationConfig().rawdatapattern.split(";");
         this.csvFormat = CSVFormat.RFC4180.withHeader(splittedFields);
         this.fields = Arrays.asList(splittedFields);
@@ -43,6 +71,11 @@ public final class GroupAllocator implements MessageProcessor {
         }
     }
 
+    /**
+     * Processes the private message.
+     *
+     * @param message The message
+     */
     @Override
     public void processMessage(Message message) {
         // The message author MUST have been checked before
@@ -130,6 +163,13 @@ public final class GroupAllocator implements MessageProcessor {
         }
     }
 
+    /**
+     * Patched the message by replacing fields placeholders by actual read values of the fields.
+     *
+     * @param fields The fields with their values
+     * @param message The message to patch, as a string
+     * @return The patched message
+     */
     private String patchMessage(HashMap<String, String> fields, String message) {
 
         String result = message;
