@@ -1,3 +1,19 @@
+/*
+ *    Copyright 2019 Ange Bacci
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
 package fr.marethyun;
 
 import discord4j.core.DiscordClient;
@@ -18,19 +34,47 @@ import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+/**
+ * Singleton class, responsible of the group allocation system.
+ */
 public final class GroupAllocator implements MessageProcessor {
 
+    /**
+     * The class' logger
+     */
     private static final Logger LOGGER = Logger.getLogger(GroupAllocator.class.getName());
+
+    /**
+     * The singleton instance, defaultly null
+     */
     private static GroupAllocator instance = null;
 
+    /**
+     * The csv format containing the right header specified in the configuration file
+     */
     private final CSVFormat csvFormat;
+
+    /**
+     * List of the CSV header fields, as strings
+     */
     private final List<String> fields;
 
+    /**
+     * The singleton instance getter
+     * @return a new instance if {@link GroupAllocator#instance} is null, {@link GroupAllocator#instance} otherwise
+     */
     public static GroupAllocator getInstance() {
         return instance == null ? new GroupAllocator() : instance;
     }
 
-    private GroupAllocator() {
+    /**
+     * The class' constructor.
+     *
+     * Builds the header and the fields using the configuration.
+     *
+     * @throws BotException if there were a problem loading the files
+     */
+    private GroupAllocator() throws BotException {
         String[] splittedFields = App.getInstance().getGroupsAllocationConfig().rawdatapattern.split(";");
         this.csvFormat = CSVFormat.RFC4180.withHeader(splittedFields);
         this.fields = Arrays.asList(splittedFields);
@@ -43,6 +87,11 @@ public final class GroupAllocator implements MessageProcessor {
         }
     }
 
+    /**
+     * Processes the private message.
+     *
+     * @param message The message
+     */
     @Override
     public void processMessage(Message message) {
         // The message author MUST have been checked before
@@ -130,6 +179,13 @@ public final class GroupAllocator implements MessageProcessor {
         }
     }
 
+    /**
+     * Patched the message by replacing fields placeholders by actual read values of the fields.
+     *
+     * @param fields The fields with their values
+     * @param message The message to patch, as a string
+     * @return The patched message
+     */
     private String patchMessage(HashMap<String, String> fields, String message) {
 
         String result = message;
