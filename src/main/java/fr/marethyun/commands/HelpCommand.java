@@ -6,6 +6,12 @@ import fr.marethyun.CommandException;
 import fr.marethyun.CommandsRegister;
 
 public class HelpCommand implements CommandsRegister.CommandExecutor {
+    /**
+     * Sends the user a list of the registered command with their first alias.
+     *
+     * @param message The discord message
+     * @param mention The sender's mention string
+     */
     @Override
     public void execute(Message message, String mention) throws CommandException {
         message.getChannel().subscribe(channel -> {
